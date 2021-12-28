@@ -5,7 +5,24 @@ import { Button } from '..';
 export default {
   title: 'Button',
   components: Button,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: {
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+      defaultValue: 'medium',
+    },
+    color: {
+      options: ['primary', 'info'],
+      control: { type: 'select' },
+      defaultValue: 'primary',
+    },
+    variant: {
+      options: ['text', 'outlined', 'contained'],
+      control: { type: 'select' },
+      defaultValue: 'text',
+    },
+    onClick: { action: 'clicked' },
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args}>click me</Button>;
@@ -15,19 +32,12 @@ SmallButton.args = {
   size: 'small',
 };
 
-export const PrimaryButton = Template.bind({});
-PrimaryButton.args = {
-  color: 'primary',
+export const InfoButton = Template.bind({});
+InfoButton.args = {
+  color: 'info',
 };
 
 export const ContainedButton = Template.bind({});
 ContainedButton.args = {
   variant: 'contained',
-};
-
-export const CustomButton = Template.bind({});
-CustomButton.args = {
-  size: Button.defaultProps.size,
-  color: Button.defaultProps.color,
-  variant: Button.defaultProps.variant,
 };

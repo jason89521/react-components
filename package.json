@@ -1,6 +1,6 @@
 {
   "name": "@yuxuan-zheng/react-components",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -16,7 +16,14 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [],
-  "author": "jason89521",
+  "author": {
+    "name": "Yu-Xuan Zheng",
+    "email": "97ssps30212@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jason89521/react-components"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.5",

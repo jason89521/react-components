@@ -1,3 +1,3 @@
 # react-components
 
-Write components to practice react.
+Write components to practice react and typescript.
