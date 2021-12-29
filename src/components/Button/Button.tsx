@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ButtonProps, StyledProps, Color, Padding } from './Button.types';
+import { darken, lighten } from '../../utils/Color';
 
 class Button extends React.Component<ButtonProps> {
   static defaultProps: ButtonProps = {
@@ -13,7 +14,7 @@ class Button extends React.Component<ButtonProps> {
     const { size, color, variant } = props;
     const returnProps = {
       padding: Padding.medium,
-      color: Color.primary.main as string,
+      color: Color.primary as string,
       border: 'none',
       backgroundColor: Color.transparent as string,
       hoverBackgroundColor: Color.transparent as string,
@@ -27,16 +28,16 @@ class Button extends React.Component<ButtonProps> {
     switch (variant) {
       case 'contained':
         returnProps.color = 'white';
-        returnProps.backgroundColor = Color[color].main;
-        returnProps.hoverBackgroundColor = Color[color].light;
-        returnProps.activeBackgroundColor = Color[color].dark;
+        returnProps.backgroundColor = Color[color];
+        returnProps.hoverBackgroundColor = darken(Color[color], 0.25);
+        returnProps.activeBackgroundColor = lighten(Color[color], 0.25);
         break;
       case 'outlined':
-        returnProps.border = `2px solid ${Color[color].main}`;
+        returnProps.border = `2px solid ${Color[color]}`;
       default:
-        returnProps.color = Color[color].main;
-        returnProps.hoverBackgroundColor = Color[color].main + '20';
-        returnProps.activeBackgroundColor = Color[color].main + '60';
+        returnProps.color = Color[color];
+        returnProps.hoverBackgroundColor = Color[color] + '20';
+        returnProps.activeBackgroundColor = Color[color] + '60';
         break;
     }
 

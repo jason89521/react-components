@@ -6,38 +6,25 @@ export default {
   title: 'Button',
   components: Button,
   argTypes: {
-    size: {
-      options: ['small', 'medium', 'large'],
-      control: { type: 'select' },
-      defaultValue: 'medium',
-    },
-    color: {
-      options: ['primary', 'info'],
-      control: { type: 'select' },
-      defaultValue: 'primary',
-    },
-    variant: {
-      options: ['text', 'outlined', 'contained'],
-      control: { type: 'select' },
-      defaultValue: 'text',
-    },
+    variant: { control: 'select', options: ['text', 'outlined', 'contained'] },
     onClick: { action: 'clicked' },
   },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args}>click me</Button>;
 
-export const SmallButton = Template.bind({});
-SmallButton.args = {
+export const Small = Template.bind({});
+Small.args = {
   size: 'small',
 };
-
-export const InfoButton = Template.bind({});
-InfoButton.args = {
-  color: 'info',
+Small.argTypes = {
+  size: { control: 'select', options: ['small', 'medium', 'large'] },
 };
 
-export const ContainedButton = Template.bind({});
-ContainedButton.args = {
-  variant: 'contained',
+export const Info = Template.bind({});
+Info.args = {
+  color: 'info',
+};
+Info.argTypes = {
+  color: { control: 'select', options: ['primary', 'info'] },
 };
