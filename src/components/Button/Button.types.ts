@@ -7,6 +7,7 @@ export interface ButtonProps {
   variant?: 'text' | 'contained' | 'outlined';
   color?: ColorType;
   disabled?: boolean;
+  classes?: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 

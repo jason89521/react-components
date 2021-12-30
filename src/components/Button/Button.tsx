@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ButtonProps, StyledProps, Color, Padding } from './Button.types';
-import { darken, lighten } from '../../utils/Color';
+import { darken, lighten, alpha } from '../../utils/Color';
 
 class Button extends React.Component<ButtonProps> {
   static defaultProps: ButtonProps = {
@@ -36,8 +36,8 @@ class Button extends React.Component<ButtonProps> {
         returnProps.border = `2px solid ${Color[color]}`;
       default:
         returnProps.color = Color[color];
-        returnProps.hoverBackgroundColor = Color[color] + '20';
-        returnProps.activeBackgroundColor = Color[color] + '60';
+        returnProps.hoverBackgroundColor = alpha(Color[color], 0.2);
+        returnProps.activeBackgroundColor = alpha(Color[color], 0.5);
         break;
     }
 
@@ -45,7 +45,7 @@ class Button extends React.Component<ButtonProps> {
   }
 
   render() {
-    const { children, disabled, onClick } = this.props;
+    const { children, disabled, classes, onClick } = this.props;
     const { padding, color, border, backgroundColor, hoverBackgroundColor, activeBackgroundColor } =
       Button.produceStyledProps(this.props);
     return (
@@ -58,6 +58,7 @@ class Button extends React.Component<ButtonProps> {
         padding={padding}
         onClick={onClick}
         disabled={disabled}
+        className={classes}
       >
         {children}
       </StyledButton>

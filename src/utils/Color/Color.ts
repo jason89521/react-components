@@ -10,6 +10,12 @@ const convertToHexColor = (value: number) => {
 };
 
 // export functions
+/**
+ * Return a darker hex color
+ * @param color hex color (eq. #abcdef)
+ * @param percentage 0 ~ 1
+ * @returns
+ */
 export const darken = (color: string, percentage: number) => {
   const [r, g, b] = getRGB(color);
   const rParam = Math.round(r * percentage);
@@ -21,6 +27,12 @@ export const darken = (color: string, percentage: number) => {
   return '#' + rr + gg + bb;
 };
 
+/**
+ * Return a lighter hex color
+ * @param color hex color (eq. #abcdef)
+ * @param percentage 0 ~ 1
+ * @returns
+ */
 export const lighten = (color: string, percentage: number) => {
   const [r, g, b] = getRGB(color);
   const rParam = Math.round((255 - r) * percentage);
@@ -30,4 +42,15 @@ export const lighten = (color: string, percentage: number) => {
   const gg = convertToHexColor(g + gParam);
   const bb = convertToHexColor(b + bParam);
   return '#' + rr + gg + bb;
+};
+
+/**
+ * Return a hex color with different transparency.
+ * @param color hex color (eq. #abcdef)
+ * @param percentage 0 ~ 1
+ * @returns
+ */
+export const alpha = (color: string, percentage: number) => {
+  const aa = convertToHexColor(Math.round(255 * percentage));
+  return color + aa;
 };
