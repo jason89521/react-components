@@ -1,43 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonProps, StyledProps, Color, Padding } from './Button.types';
-import { darken, lighten, alpha } from '../../utils/Color';
+import { ButtonProps, StyledProps, Padding } from './Button.types';
+import { COLOR, darken, lighten, alpha } from '../../utils/Color';
 
 class Button extends React.Component<ButtonProps> {
-  static defaultProps: ButtonProps = {
-    size: 'medium',
-    variant: 'text',
-    color: 'primary',
-  };
-
   static produceStyledProps(props: ButtonProps): StyledProps {
-    const { size, color, variant } = props;
+    const { size = 'medium', color = 'primary', variant = 'text' } = props;
     const returnProps = {
       padding: Padding.medium,
-      color: Color.primary as string,
+      color: COLOR.primary as string,
       border: 'none',
-      backgroundColor: Color.transparent as string,
-      hoverBackgroundColor: Color.transparent as string,
-      activeBackgroundColor: Color.transparent as string,
+      backgroundColor: COLOR.transparent as string,
+      hoverBackgroundColor: COLOR.transparent as string,
+      activeBackgroundColor: COLOR.transparent as string,
     };
 
     if (size !== undefined) returnProps.padding = Padding[size];
 
-    if (color === undefined || Color[color] === undefined) return returnProps;
+    if (color === undefined || COLOR[color] === undefined) return returnProps;
 
     switch (variant) {
       case 'contained':
         returnProps.color = 'white';
-        returnProps.backgroundColor = Color[color];
-        returnProps.hoverBackgroundColor = darken(Color[color], 0.25);
-        returnProps.activeBackgroundColor = lighten(Color[color], 0.25);
+        returnProps.backgroundColor = COLOR[color];
+        returnProps.hoverBackgroundColor = darken(COLOR[color], 0.25);
+        returnProps.activeBackgroundColor = lighten(COLOR[color], 0.25);
         break;
       case 'outlined':
-        returnProps.border = `2px solid ${Color[color]}`;
+        returnProps.border = `2px solid ${COLOR[color]}`;
       default:
-        returnProps.color = Color[color];
-        returnProps.hoverBackgroundColor = alpha(Color[color], 0.2);
-        returnProps.activeBackgroundColor = alpha(Color[color], 0.5);
+        returnProps.color = COLOR[color];
+        returnProps.hoverBackgroundColor = alpha(COLOR[color], 0.2);
+        returnProps.activeBackgroundColor = alpha(COLOR[color], 0.4);
         break;
     }
 

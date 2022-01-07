@@ -26,5 +26,10 @@ Info.args = {
   color: 'info',
 };
 Info.argTypes = {
-  color: { control: 'select', options: ['primary', 'info'] },
+  color: { control: 'select', options: ['primary', 'info', 'success', 'error', 'warning'] },
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
 };

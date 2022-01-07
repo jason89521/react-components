@@ -1,6 +1,6 @@
 import React from 'react';
 
-type ColorType = 'primary' | 'info';
+type ColorType = 'primary' | 'info' | 'success' | 'error' | 'warning';
 
 export interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
@@ -27,9 +27,3 @@ export enum Padding {
   medium = '.75rem 1.5rem',
   large = '1rem 2rem',
 }
-
-export const Color = {
-  transparent: 'transparent',
-  primary: '#55c57a',
-  info: '#438cfa',
-} as const;
