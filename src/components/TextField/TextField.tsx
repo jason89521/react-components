@@ -16,7 +16,7 @@ class TextField extends React.Component<TextFieldProps, TextFieldState> {
     const { label } = this.props;
     return (
       <Container>
-        <StyledInput type='text' onChange={this.onInputChange} placeholder='Name' />
+        <StyledInput type='text' onChange={this.onInputChange} placeholder={label} />
         <StyledLabel htmlFor=''>{label}</StyledLabel>
       </Container>
     );
