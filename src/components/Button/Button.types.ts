@@ -8,7 +8,7 @@ export interface ButtonProps {
   color?: ColorType;
   disabled?: boolean;
   classes?: string;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick?: React.MouseEventHandler;
 }
 
 export interface StyledProps {

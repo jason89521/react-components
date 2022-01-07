@@ -10,6 +10,9 @@ class TextField extends React.Component<TextFieldProps, TextFieldState> {
 
   onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ value: event.target.value });
+
+    const { onChange } = this.props;
+    if (onChange !== undefined) onChange(event);
   };
 
   render() {
@@ -22,7 +25,6 @@ class TextField extends React.Component<TextFieldProps, TextFieldState> {
     );
   }
 }
-
 
 const Container = styled.div`
   position: relative;
