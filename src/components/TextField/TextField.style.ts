@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLOR, alpha } from '../../utils/Color';
+import { TextFieldProps } from './TextField.type';
 
 export const Container = styled.div`
   position: relative;
@@ -11,7 +12,8 @@ export const Container = styled.div`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<TextFieldProps>`
+  resize: none;
   display: block;
   width: 100%;
   padding: 16px 14px;
@@ -32,11 +34,20 @@ export const Input = styled.input`
     }
   }
 
-  &:not([value='']) {
-    & ~ label {
-      transform: translate(14px, -20px);
-    }
-  }
+  ${props => {
+    if (props.multiline)
+      return `
+          &:not(:empty) ~ label {
+            transform: translate(14px, -20px);
+          }
+        `;
+
+    return `
+      &:not([value='']) ~ label {
+          transform: translate(14px, -20px);
+      }
+      `;
+  }}
 `;
 
 export const Label = styled.label`

@@ -3,7 +3,8 @@ import React from 'react';
 export interface TextFieldProps {
   id?:string;
   label?: string;
-  multiline: boolean;
+  multiline?: boolean;
+  rows?: number;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 

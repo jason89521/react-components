@@ -15,15 +15,19 @@ class TextField extends React.Component<TextFieldProps, TextFieldState> {
   };
 
   render() {
-    const { id, label, multiline = false } = this.props;
+    const { id, label, multiline = false, rows = 3 } = this.props;
+    const as = multiline ? 'textarea' : 'input';
     return (
       <Container>
-        <Input id={id} type='text' value={this.state.value} onChange={this.onInputChange} />
-        {/* <Fieldset>
-          <legend>
-            <span>{label}</span>
-          </legend>
-        </Fieldset> */}
+        <Input
+          as={as}
+          rows={rows}
+          id={id}
+          multiline={multiline}
+          type='text'
+          value={this.state.value}
+          onChange={this.onInputChange}
+        />
         <Label htmlFor={id}>{label}</Label>
       </Container>
     );

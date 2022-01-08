@@ -13,3 +13,10 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'default',
 };
+
+export const Multiline = Template.bind({});
+Multiline.args = {
+  label: 'Multiline',
+  multiline: true,
+  rows: 10,
+};
