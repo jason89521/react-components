@@ -3,7 +3,7 @@ import { COLOR, alpha } from '../../utils/Color';
 
 export const Container = styled.div`
   position: relative;
-  margin: 1rem;
+  margin: 20px;
   box-sizing: border-box;
 
   * {
@@ -16,55 +16,26 @@ export const Input = styled.input`
   width: 100%;
   padding: 16px 14px;
   outline: none;
-  border: none;
+  border: 2px solid ${alpha('#000000', 0.25)};
+  border-radius: 5px;
   color: ${alpha('#000000', 0.5)};
 
   &:hover {
-    & ~ fieldset {
-      border-color: ${alpha('#000000', 0.75)};
-    }
+    border-color: ${alpha('#000000', 0.75)};
   }
 
   &:focus {
-    padding: 16px 18.5px;
+    border-color: ${COLOR.primary};
     & ~ label {
-      transform: translate(16px, -7px) scale(0.9);
+      transform: translate(14px, -20px);
       color: ${COLOR.primary};
-    }
-
-    & ~ fieldset {
-      border-color: ${COLOR.primary};
-      border-width: 2px;
-
-      & > legend {
-        width: auto;
-      }
     }
   }
 
   &:not([value='']) {
-    padding: 16px 18.5px;
     & ~ label {
-      transform: translate(16px, -7px) scale(0.9);
+      transform: translate(14px, -20px);
     }
-
-    & ~ fieldset > legend {
-      width: auto;
-    }
-  }
-`;
-
-export const Fieldset = styled.fieldset`
-  position: absolute;
-  inset: -5px 0 0;
-  pointer-events: none;
-  border-radius: 5px;
-  border: 1px solid ${alpha('#000000', 0.25)};
-
-  & > legend {
-    width: 0;
-    visibility: hidden;
-    padding: 0;
   }
 `;
 

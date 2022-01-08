@@ -2,8 +2,8 @@ import React from 'react';
 
 export interface TextFieldProps {
   id?:string;
-  label: string;
-  placeholder?: string;
+  label?: string;
+  multiline: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 

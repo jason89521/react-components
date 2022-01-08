@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Input, Fieldset, Label } from './TextField.style';
+import { Container, Input, Label } from './TextField.style';
 import { TextFieldProps, TextFieldState } from './TextField.type';
 
 class TextField extends React.Component<TextFieldProps, TextFieldState> {
@@ -15,21 +15,19 @@ class TextField extends React.Component<TextFieldProps, TextFieldState> {
   };
 
   render() {
-    const { id, label } = this.props;
+    const { id, label, multiline = false } = this.props;
     return (
       <Container>
         <Input id={id} type='text' value={this.state.value} onChange={this.onInputChange} />
-        <Fieldset>
+        {/* <Fieldset>
           <legend>
             <span>{label}</span>
           </legend>
-        </Fieldset>
+        </Fieldset> */}
         <Label htmlFor={id}>{label}</Label>
       </Container>
     );
   }
 }
-
-
 
 export default TextField;
